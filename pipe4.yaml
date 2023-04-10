@@ -1,5 +1,5 @@
 project_name: "webapps"
-environment: "dev"
+environment: "prd"
 region: "us-east-1"
 technology: "ecs"
 app_type: "api"
