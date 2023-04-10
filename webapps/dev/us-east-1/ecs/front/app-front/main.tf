@@ -25,7 +25,7 @@ resource "aws_ecs_task_definition" "service" {
   container_definitions = jsonencode([
     {
       name      = "first-${var.service_name}-${var.environment}"
-      image     = "service-first"
+      image     = "public.ecr.aws/nginx/nginx:latest"
       cpu       = 10
       memory    = 512
       essential = true

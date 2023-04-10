@@ -6,11 +6,12 @@ remote_state {
     if_exists = "overwrite_terragrunt"
   }
   config = {
-    bucket = "webapp-dev01-terraform-state"
+    bucket = "terraform-state-ecs-clusters"
 
     key = "webapps/dev/us-east-1/ecs-cluster/api/${path_relative_to_include()}/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "webapp-dev01-lock-table"
+    dynamodb_table = "ecs-clusters-lock-table"
   }
 }
+
