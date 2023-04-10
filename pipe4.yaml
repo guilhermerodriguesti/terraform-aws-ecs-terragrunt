@@ -1,0 +1,6 @@
+project_name: "webapps"
+environment: "dev"
+region: "us-east-1"
+technology: "ecs"
+app_type: "api"
+service_name: "app-api"
