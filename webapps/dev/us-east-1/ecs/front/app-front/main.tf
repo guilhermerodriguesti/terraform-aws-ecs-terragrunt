@@ -1,8 +1,11 @@
-variable "env" {}
+variable "environment" {}
+variable "app_type" {}
+variable "service_name" {}
+
 
 resource "aws_ecs_service" "api" {
-  name            = "api"
-  cluster         = "ecs-webapps-api-${var.env}"
+  name            = "${var.service_name}"
+  cluster         = "ecs-webapps-${var.app_type}-${var.environment}"
   task_definition = aws_ecs_task_definition.service.arn
   desired_count   = 3
 
@@ -18,10 +21,10 @@ resource "aws_ecs_service" "api" {
 }
 
 resource "aws_ecs_task_definition" "service" {
-  family = "api"
+  family = "${var.service_name}"
   container_definitions = jsonencode([
     {
-      name      = "first-api"
+      name      = "first-${var.service_name}-${var.environment}"
       image     = "service-first"
       cpu       = 10
       memory    = 512

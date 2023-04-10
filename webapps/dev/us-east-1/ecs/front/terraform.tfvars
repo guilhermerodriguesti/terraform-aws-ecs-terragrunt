@@ -1,2 +1,2 @@
 environment="dev"
-app_type="api"
+app_type="front"
